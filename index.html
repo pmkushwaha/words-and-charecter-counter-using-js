@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word & Char Counter</title>
+
+    <!-- Styling code -->
+    <style>
+        body {
+            padding: 50px 100px;
+        }
+
+        h1 {
+            padding: 10px;
+            ;
+            text-align: center;
+            font-weight: bold;
+            color: whitesmoke;
+            background-color: blue;
+        }
+
+        #txt_area {
+            border: solid 1px blue;
+            font: 100;
+            width: 100%;
+        }
+
+        p {
+            text-align: center;
+            background-color: blue;
+            font-weight: bold;
+            font-size: 20px;
+            color: whitesmoke;
+            padding: 5px;
+        }
+    </style>
+    </h1>
+</head>
+
+<body>
+    <h1>Words and Characters Counter</h1>
+    <textarea id="text_area" cols="30" rows="10" placeholder="start typing..." autofocus></textarea>
+    <p><span id="wrd">0 </span>Word And <span id="char">0 </span>Character </p>
+
+
+    <!-- Scripting backend -->
+    <script>
+        let text_area = document.getElementById("text_area");
+        text_area.addEventListener('input', function () {
+            let text = this.value;
+            // character count 
+            let c_length = text.length;
+            document.getElementById("char").innerHTML = c_length;
+
+
+            // words count
+
+            let word = text.split(" ");  //help to split the sentence in word along with witespace
+
+            // help to clear  whitespace within the sentence 
+            let origina_word = word.filter(function (elm) {
+                return elm != "";
+            });
+
+            let w_length = origina_word.length;
+            document.getElementById("wrd").innerHTML = w_length;
+        });
+    </script>
+</body>
+
+</html>
